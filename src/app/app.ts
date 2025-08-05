@@ -1,11 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Weather } from "./components/weather/weather";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Weather],
-  templateUrl: './app.html',
+  imports: [RouterOutlet],
+  template: `<router-outlet></router-outlet>`,
   styleUrl: './app.css'
 })
 export class App {

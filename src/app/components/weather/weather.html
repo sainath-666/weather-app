@@ -1,1 +1,28 @@
-<p>weather works!</p>
+<div class="weather-container">
+  <h2>🌤 Weather App</h2>
+  <form (Submit)="getWeather()">
+    <input type="text" placeholder="Enter city name" [(ngModel)]="city" name="city" required />
+    <button type="submit">Get Weather</button>
+  </form>
+
+  @if (weatherData){
+  <div class="weather-card">
+    <h3>{{ weatherData.name }}, {{ weatherData.sys.country }}</h3>
+    <p><strong>Temperature:</strong> {{ weatherData.main.temp }} °C</p>
+    <p><strong>Condition:</strong> {{ weatherData.weather[0].main }}</p>
+    <p><strong>Humidity:</strong> {{ weatherData.main.humidity }}%</p>
+    <p><strong>Wind Speed:</strong> {{ weatherData.wind.speed }} m/s</p>
+    <img
+      [src]="
+        'http://openweathermap.org/img/wn/' +
+        weatherData.weather[0].icon +
+        '@2x.png'
+      "
+      alt="weather icon"
+    />
+  </div>
+  }
+   @if (errorMsg) {
+  <div class="error">{{ errorMsg }}</div>
+  }
+</div>
