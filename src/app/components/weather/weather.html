@@ -1,6 +1,6 @@
 <div class="weather-container">
   <h2>🌤 Weather App</h2>
-  <form (Submit)="getWeather()">
+  <form (ngSubmit)="getWeather()">
     <input type="text" placeholder="Enter city name" [(ngModel)]="city" name="city" required />
     <button type="submit">Get Weather</button>
   </form>
